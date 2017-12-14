@@ -1,5 +1,3 @@
-package ExercisesCCC2017;//Eric Schilha - CCC 2016 Q5
-
 import java.util.*;
 
 public class S52017 {

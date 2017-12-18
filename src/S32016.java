@@ -6,6 +6,35 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class S32016 {
+    static int nStart = -1;
+    static boolean isPho[];
+    static ArrayList<ArrayList<Integer>> alAdjac = new ArrayList<>();
+
+    public static void main(String[] args) throws IOException {
+        FastScanner sin = new FastScanner(System.in);
+        int N = sin.nextInt(), M = sin.nextInt();
+        isPho = new boolean[N];
+
+        for (int i = 0; i < N; i++) {//Map out all restaurants
+            alAdjac.add(new ArrayList<>());
+        }
+
+        for (int i = 0; i < M; i++) {
+            if (nStart == -1) {
+                nStart = sin.nextInt();
+                isPho[nStart] = true;
+            } else {
+                isPho[sin.nextInt()] = true;
+            }
+        }
+
+        for (int i = 0; i < N - 1; i++) {
+            int nRest1 = sin.nextInt(), nRest2 = sin.nextInt();
+            alAdjac.get(nRest1).add(nRest2);
+            alAdjac.get(nRest2).add(nRest1);
+        }
+    }
+
     static class FastScanner {
         private BufferedReader br;
         private StringTokenizer st;
@@ -41,20 +70,5 @@ public class S32016 {
             }
             return cont;
         }
-    }
-
-    public static void main(String[] args) throws IOException {
-        FastScanner sin = new FastScanner(System.in);
-        int N = sin.nextInt(), M = sin.nextInt();
-        boolean isPho[] = new boolean[N];
-        ArrayList<ArrayList<Integer>> alAdjac = new ArrayList<ArrayList<Integer>>();
-        for (int i = 0; i < N; i++) {//Map out all restaurants
-            alAdjac.add(new ArrayList<Integer>());
-        }
-
-        for (int i = 0; i < M; i++) {
-            isPho[sin.nextInt()] = true;
-        }
-
     }
 }

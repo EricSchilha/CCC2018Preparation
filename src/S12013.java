@@ -53,7 +53,8 @@ public class S12013 {
     }
 
     public static void main(String[] args) throws IOException {
-        FastScanner sin = new FastScanner(System.in);
+        //FastScanner sin = new FastScanner(System.in);
+        Scanner sin = new Scanner(System.in);
         int nYear = sin.nextInt()+1;
         while (!isDistinct(nYear)) {
             nYear++;

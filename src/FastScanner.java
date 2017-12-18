@@ -8,7 +8,8 @@ import java.util.StringTokenizer;
 //by using a BufferedReader instead while allowing the ease of use of the
 //original Scanner class
 
-public class FastScanner {//Make static instead of public
+//Make static instead of public
+public class FastScanner {
     private BufferedReader br;
     private StringTokenizer st;
 

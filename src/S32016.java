@@ -16,7 +16,7 @@ public class S32016 {
         isPho = new boolean[N];
 
         for (int i = 0; i < N; i++) {//Map out all restaurants
-            alAdjac.add(new ArrayList<>());
+            alAdjac.add(new ArrayList<Integer>());
         }
 
         for (int i = 0; i < M; i++) {

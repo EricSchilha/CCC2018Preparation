@@ -20,11 +20,11 @@ public class S22013 {
                 nTempW += arnCurCars[j];
             }
             if (nTempW > nMaxW) {
-                System.out.println(nCrossedCars);
                 break;
             } else {
                 nCrossedCars++;
             }
         }
+        System.out.println(nCrossedCars);
     }
 }

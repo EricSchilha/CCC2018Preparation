@@ -1,17 +1,17 @@
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.lang.reflect.Array;
+import java.util.*;
 
 
 public class J42015 {
     public static void main(String[] args) {
         Scanner sin = new Scanner(System.in);
-        int M = sin.nextInt();
+        int M = sin.nextInt(), n, nWait;
         char c;
-        int n;
-        boolean found = false;
+        boolean found;
         ArrayList<Friend> alFriends = new ArrayList<>();
         for(int i = 0; i < M; i++){
+            nWait = 1;
             c = sin.next().charAt(0);
             n = sin.nextInt();
             if(c=='R'){
@@ -32,8 +32,20 @@ public class J42015 {
                         alFriends.get(j).increasing = false;
                     }
                 }
+            } else {
+                nWait += n - 1;
             }
-            
+            for (int j = 0; j < alFriends.size(); j++) {
+                alFriends.get(j).nTime += (alFriends.get(j).increasing) ? nWait : 0;
+            }
+
+        }
+        for (int i = 0; i < alFriends.size(); i++) {
+            if (alFriends.get(i).increasing) {
+                System.out.println(alFriends.get(i).nNum + " -1");
+            } else {
+                System.out.println(alFriends.get(i).nNum + " " + alFriends.get(i).nTime);
+            }
         }
     }
     
@@ -42,7 +54,7 @@ public class J42015 {
         boolean increasing = true;
         Friend(int nNum){
             this.nNum = nNum;
-            nTime = 0;
+            nTime = -1;
         }
     }
 }

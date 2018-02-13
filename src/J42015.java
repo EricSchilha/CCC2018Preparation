@@ -1,8 +1,7 @@
 
-import java.lang.reflect.Array;
 import java.util.*;
 
-
+//INCOMPLETE
 public class J42015 {
     public static void main(String[] args) {
         Scanner sin = new Scanner(System.in);
@@ -10,25 +9,25 @@ public class J42015 {
         char c;
         boolean found;
         ArrayList<Friend> alFriends = new ArrayList<>();
-        for(int i = 0; i < M; i++){
+        for (int i = 0; i < M; i++) {
             nWait = 1;
             c = sin.next().charAt(0);
             n = sin.nextInt();
-            if(c=='R'){
+            if (c == 'R') {
                 found = false;
-                for(int j = 0; j < alFriends.size(); j++){
-                    if(alFriends.get(j).nNum==n){
+                for (int j = 0; j < alFriends.size(); j++) {
+                    if (alFriends.get(j).nNum == n) {
                         found = true;
                         alFriends.get(j).increasing = true;
                         break;
                     }
                 }
-                if(!found){
+                if (!found) {
                     alFriends.add(new Friend(n));
                 }
-            } else if(c=='S'){
-                for(int j = 0; j < alFriends.size(); j++){
-                    if(alFriends.get(j).nNum == n){
+            } else if (c == 'S') {
+                for (int j = 0; j < alFriends.size(); j++) {
+                    if (alFriends.get(j).nNum == n) {
                         alFriends.get(j).increasing = false;
                     }
                 }
@@ -48,11 +47,12 @@ public class J42015 {
             }
         }
     }
-    
-    static class Friend{
+
+    static class Friend {
         int nNum, nTime;
         boolean increasing = true;
-        Friend(int nNum){
+
+        Friend(int nNum) {
             this.nNum = nNum;
             nTime = -1;
         }

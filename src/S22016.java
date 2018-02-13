@@ -1,25 +1,29 @@
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+import static java.lang.Integer.max;
 
-/**
- *
- * @author schie3227
- */
 public class S22016 {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         Scanner sin = new Scanner(System.in);
         int question = sin.nextInt();
         int N = sin.nextInt();
-        int dmo[] = new int[N], peg[] = new int[N];
-        
+        int nSum = 0;
+        Integer dmoj[] = new Integer[N], peg[] = new Integer[N];
+        for (int i = 0; i < N; i++)
+            dmoj[i] = sin.nextInt();
+        for (int i = 0; i < N; i++)
+            peg[i] = sin.nextInt();
+        Collections.sort(Arrays.asList(dmoj));
+        Collections.sort(Arrays.asList(peg));
+        if(question == 2){
+            Collections.reverse(Arrays.asList(dmoj));
+        }
+        for(int i = 0; i < N; i++){
+            nSum+=max(dmoj[i], peg[i]);
+        }
+        System.out.println(nSum);
     }
 }

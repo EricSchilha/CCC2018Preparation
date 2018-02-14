@@ -1,17 +1,25 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.Scanner;
-import java.util.StringTokenizer;
-//INCOMPLETE
+import java.io.*;
+import java.util.*;
+
 public class S32011 {
     public static void main(String[] args) throws IOException {
         FastScanner sin = new FastScanner(System.in);
         int T = sin.nextInt();
         for (int i = 0; i < T; i++) {
-            //do test cases
+            System.out.println(isCellEmpty(sin.nextInt(), sin.nextInt(), sin.nextInt()) ? "empty" : "crystal");
         }
+    }
+
+    public static boolean isCellEmpty(int m, int x, int y) {
+        if (m == 0) return true;
+        int x2 = (int) Math.floor(x / Math.pow(5, m - 1));
+        int y2 = (int) Math.floor(y / Math.pow(5, m - 1));
+        if ((y2 == 0 && x2 > 0 && x2 < 4) || (y2 == 1 && x2 == 2)) {
+            return false;
+        } else if ((y2 == 1 && (x2 == 1 || x2 == 3)) || (y2 == 2 && x2 == 2)) {
+            return isCellEmpty(m - 1, (int) Math.floor(x % Math.pow(5, m - 1)), (int) Math.floor(y % Math.pow(5, m - 1)));
+        }
+        return true;
     }
 
     static class FastScanner {
